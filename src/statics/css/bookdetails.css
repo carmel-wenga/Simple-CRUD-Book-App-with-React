@@ -1,0 +1,42 @@
+.content{
+    margin: 0 10% 0 10%;
+}
+
+.content > *{
+    display: inline-block;
+}
+
+.left-side{
+    width: 20%;
+    color: rgb(52, 54, 53);
+    text-align: left;
+    margin-top: 60px;
+}
+
+.left-side span{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.rigth-side{
+    width: 75%;
+    float: right;
+}
+
+.rigth-side p{
+    text-align: justify;
+}
+
+.left-side .rigth-side{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.book-title{
+    margin-top: 15px;
+}
+
+span a {
+    margin-left: 8px;
+}

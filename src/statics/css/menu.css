@@ -1,0 +1,23 @@
+.menu {
+    background-color: rgb(228, 228, 228);
+    height: 50px;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.menu li{
+    display: inline-block;
+    padding: 15px 10px 0 15px;
+}
+
+.menu li a {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #455b67;
+}
+
+.menu a:hover{
+    cursor: pointer;
+    color: rgb(110, 126, 126);
+}
