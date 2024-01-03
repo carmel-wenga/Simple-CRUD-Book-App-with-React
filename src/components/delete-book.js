@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { API_BASE_URL, API_ENDPOINTS } from "../api-config";
+
 import { useParams } from 'react-router-dom';
 
 
@@ -26,7 +28,7 @@ function DeleteBook() {
     const handleDelete = useCallback(async () => {
       try {
           const response = await axios.delete(
-            `http://localhost:5000/api/v1/books/${isbn}`
+            `${API_BASE_URL}${API_ENDPOINTS.books}${isbn}`
           );
     
           if (response.status === 204) {  

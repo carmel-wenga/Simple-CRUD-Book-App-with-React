@@ -7,12 +7,14 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import '../statics/css/bookdetails.css'
 
+import { API_BASE_URL, API_ENDPOINTS } from "../api-config";
+
 function Book() {
     const { isbn } = useParams();
     const [book, setBook] = useState(null);
 
     useEffect(() => {
-        const apiUrl = `http://localhost:5000/api/v1/books/${isbn}`;
+        const apiUrl = `${API_BASE_URL}${API_ENDPOINTS.books}${isbn}`;
         axios.get(apiUrl).then((response) => {
                 setBook(response.data);
         }).catch((error) => {

@@ -6,6 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
 import React, { useState } from "react";
+import { API_BASE_URL, API_ENDPOINTS } from "../api-config";
 
 function AddBook() {
     const [isbn, setIsbn] = useState("");    
@@ -43,7 +44,7 @@ function AddBook() {
 
         // Send a POST request to your API to create the book
         try {
-            const response = await axios.post("http://localhost:5000/api/v1/books/", newBook);
+            const response = await axios.post(`${API_BASE_URL}${API_ENDPOINTS.books}`, newBook);
       
             if (response.status === 201) {
               setShowSuccessPopup(true);
@@ -52,7 +53,7 @@ function AddBook() {
             }
         } catch (error) {
             console.error("Error:", error);
-        };
+        }
 
     };
 
@@ -82,7 +83,7 @@ function AddBook() {
             </div>
             <div>
                 <label htmlFor="description">Description</label>
-                <textarea type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} required rows={7}/>
+                <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} required rows={7}/>
             </div>
             <div>
                 <label htmlFor="language">Language</label>

@@ -6,6 +6,8 @@ import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../statics/css/list.css'
 
+import { API_BASE_URL, API_ENDPOINTS } from "../api-config";
+
 function BookList() {
 
     const [books, setBooks] = useState([]);
@@ -13,7 +15,7 @@ function BookList() {
 
 
     useEffect(() =>{
-        const apiUrl = `http://localhost:5000/api/v1/books/`;
+        const apiUrl = `${API_BASE_URL}${API_ENDPOINTS.books}`;
     
         axios.get(apiUrl)
             .then((response) => {
