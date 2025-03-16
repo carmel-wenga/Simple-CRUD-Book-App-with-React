@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libexplorer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: libexplorer
+  template:
+    metadata:
+      labels:
+        app: libexplorer
+    spec:
+      containers:
+      - name: libexplorer
+        image: libexplorer:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: REACT_APP_PROTOCOL
+          valueFrom:
+            configMapKeyRef:
+              name: libexplorer-config
+              key: REACT_APP_PROTOCOL
+        - name: REACT_APP_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: libexplorer-config
+              key: REACT_APP_HOST
+        - name: REACT_APP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: libexplorer-config
+              key: REACT_APP_PORT
+        - name: REACT_APP_API_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: libexplorer-config
+              key: REACT_APP_API_VERSION
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: libexplorer-service
+spec:
+  selector:
+    app: libexplorer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
