@@ -8,3 +8,6 @@ You can find the source code of the backend app [here](https://github.com/carmel
 ```commandline
 docker build -t libexplorer:latest --build-arg PROTOCOL=http --build-arg HOST=backend-service --build-arg PORT=5000 --build-arg API_VERSION=/api/v1 .
 ```
+
+kubectl port-forward deployment/libexplorer 8081
+

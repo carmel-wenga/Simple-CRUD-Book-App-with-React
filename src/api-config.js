@@ -5,7 +5,7 @@ const API_SERVER = {
     'API_VERSION': process.env.REACT_APP_API_VERSION
 }
 
-const API_BASE_URL = `${API_SERVER.PROTOCOL}://${API_SERVER.HOST}:${API_SERVER.PORT}${API_SERVER.API_VERSION}`
+const API_BASE_URL = `http://libexplorer.com/api/v1/`
 const API_ENDPOINTS = {
     'books':'books/'
 }
