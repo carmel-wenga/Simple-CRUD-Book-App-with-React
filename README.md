@@ -11,3 +11,9 @@ docker build -t libexplorer:latest --build-arg PROTOCOL=http --build-arg HOST=ba
 
 kubectl port-forward deployment/libexplorer 8081
 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.1/deploy/static/provider/cloud/deploy.yaml
+
+CNI
+kube-proxy
+
+

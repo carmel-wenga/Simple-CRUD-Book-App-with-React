@@ -1,0 +1,24 @@
+# Build the react app
+FROM node:alpine as build
+
+WORKDIR /app
+
+COPY ./package.json /app
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# serge the app using nginx
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY nginx/default.conf /etc/nginx/default.conf
+
+EXPOSE 80
+
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
