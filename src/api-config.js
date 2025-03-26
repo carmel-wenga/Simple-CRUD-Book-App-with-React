@@ -5,7 +5,7 @@ const API_SERVER = {
     'API_VERSION': process.env.REACT_APP_API_VERSION
 }
 
-const API_BASE_URL = `http://localhost:80/api/v1/`
+const API_BASE_URL = `/api/v1/`
 const API_ENDPOINTS = {
     'books':'books/'
 }

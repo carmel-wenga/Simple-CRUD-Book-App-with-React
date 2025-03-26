@@ -4,11 +4,19 @@ metadata:
   name: libexplorer-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: libexplorer-service
+                port:
+                  number: 80
           - path: /books
             pathType: Prefix
             backend:
@@ -16,8 +24,8 @@ spec:
                 name: libexplorer-service
                 port:
                   number: 80
-          - path: /api
-            pathType: Prefix
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: backend-service
