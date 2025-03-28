@@ -4,9 +4,17 @@ This is a simple React App to Create, Read, Update and Delete books. For all the
 
 You can find the source code of the backend app [here](https://github.com/carmel-wenga/python-flask-crud-api-for-book-library).
 
-## Build the Dockerfile
+# Deploying the Application 
+
+## Using Docker-Compose
+
+## Using Kubernetes
+
+### Build the Docker Image for the Frontend
+
+
 ```commandline
-docker build -t libexplorer:latest --build-arg PROTOCOL=http --build-arg HOST=backend-service --build-arg PORT=5000 --build-arg API_VERSION=/api/v1 .
+docker build -t libexplorer:latest --build-arg PROTOCOL=http --build-arg HOST=localhost --build-arg PORT=80 --build-arg API_VERSION=/api/v1 .
 ```
 
 kubectl port-forward deployment/libexplorer 8081
