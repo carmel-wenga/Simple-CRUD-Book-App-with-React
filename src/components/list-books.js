@@ -16,7 +16,7 @@ function BookList() {
 
     useEffect(() =>{
         const apiUrl = `${API_BASE_URL}${API_ENDPOINTS.books}`;
-    
+        console.log('Requesting URL:', apiUrl);
         axios.get(apiUrl)
             .then((response) => {
                 setBooks(response.data.books);

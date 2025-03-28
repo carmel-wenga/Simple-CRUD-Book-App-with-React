@@ -27,6 +27,8 @@ function DeleteBook() {
 
     const handleDelete = useCallback(async () => {
       try {
+          console.log('Deleting book: ', isbn);
+          console.log('Calling Delete: ', `${API_BASE_URL}${API_ENDPOINTS.books}${isbn}`);
           const response = await axios.delete(
             `${API_BASE_URL}${API_ENDPOINTS.books}${isbn}`
           );

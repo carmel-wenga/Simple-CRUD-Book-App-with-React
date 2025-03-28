@@ -31,6 +31,12 @@ PORT=80
 API_VERSION=/api/v1
 ```
 
+If using Git Bash, before building the image, set this variable:
+```commandline
+$ export MSYS_NO_PATHCONV=1
+```
+Explanation: Git Bash converts paths that look like ```/api/v1``` into a Windows path like ```D:/Program Files/Git/api/v1```. To prevent path conversion, you can disable it before running the build with the above command.
+
 Those values should be set as argument when building the image of the react frontend:
 
 ```commandline

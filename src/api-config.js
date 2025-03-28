@@ -7,6 +7,6 @@ const API_SERVER = {
 
 const API_BASE_URL = `${API_SERVER.PROTOCOL}://${API_SERVER.HOST}:${API_SERVER.PORT}${API_SERVER.API_VERSION}`;
 const API_ENDPOINTS = {
-    'books':'books/'
+    'books':'/books/'
 }
 export { API_BASE_URL, API_ENDPOINTS };
