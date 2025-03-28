@@ -37,6 +37,13 @@ Those values should be set as argument when building the image of the react fron
 $ docker build -t libexplorer:latest --build-arg PROTOCOL=http --build-arg HOST=localhost --build-arg PORT=80 --build-arg API_VERSION=/api/v1 .
 ```
 
+These variable will help build the flask's backend URL as:
+```javascript
+const API_BASE_URL = `${API_SERVER.PROTOCOL}://${API_SERVER.HOST}:${API_SERVER.PORT}${API_SERVER.API_VERSION}`;
+```
+
+Result: ```API_BASE_URL=http://localhost:80/api/v1```
+
 ### Apply the manifest files inside the k8s cluster
 This command will apply all the configuration in the k8s cluster.
 
