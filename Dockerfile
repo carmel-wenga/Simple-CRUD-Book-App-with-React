@@ -10,14 +10,14 @@ ENV REACT_APP_HOST=$HOST
 ENV REACT_APP_PORT=$PORT
 ENV REACT_APP_API_VERSION=$API_VERSION
 
-WORKDIR /library
+WORKDIR /app
 
-COPY ./package.json yarn.lock /library/
+COPY ./package.json /app/
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
