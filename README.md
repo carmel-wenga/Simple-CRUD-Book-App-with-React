@@ -26,6 +26,13 @@ Then run the docker image as follow:
 docker run -p 8081:80 libexplorer:libex1
 ```
 
+### Push the image to Docker Hub
+```commandline
+docker tag libexplorer:libex1 carmelwenga/book-explorer:react.nginx-1.0
+docker push carmelwenga/book-explorer:react.nginx-1.0
+```
+This first command create a tag for my local image ```libexplorer:libex1```. The second command push the tag to DockerHub 
+
 ## Using Docker-Compose
 
 ## Using Kubernetes
@@ -79,5 +86,8 @@ $ kubectl apply -f k8s/
 
 ### Launch the application
 Deploy the [flask backend](https://github.com/carmel-wenga/python-flask-crud-api-for-book-library) first and go to ```localhost/books``` using your local browser.
+
+### Note
+I first used my local image in the deployment.yaml file. I have then set the ImagePullPolicy to "Never". Then I pushed the image to Dockerhub, try a second time with a remote image.
 
 

@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
       - name: libexplorer
-        image: libexplorer:latest
-        imagePullPolicy: Never
+        image: carmelwenga/book-explorer:react.nginx-1.0
         ports:
-        - containerPort: 3000
+        - containerPort: 80
